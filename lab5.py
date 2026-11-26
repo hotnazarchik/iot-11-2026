@@ -4,21 +4,23 @@ class BankAccount:
         self.owner_name = owner_name
         self.balance = balance
 
-    def __del(self):
+    def __del__(self):
         print("Balance", self.id, "deleted")
 
     def get_balance(self):
         return self.balance
 
-    def deposit(self, amount):  
+    def deposit(self, amount):
+        if amount <= 0:
+            print("Amount must be positive")
+            return
         self.balance += amount
 
     def withdraw(self, amount):
         if amount > self.balance:
             print("problem")
         else:
-            s
-            elf.balance -= amount
+            self.balance -= amount
 
     def showAccount(self):
         print("ID:", self.id, "| Owner:", self.owner_name, "|  Balancee:", self.balance)
@@ -57,18 +59,17 @@ def main():
     print("All balance:")
     bank.show_all()
 
-    bank.accounts[0].deposit(200)      
-    bank.accounts[1].deposit(50.5)     
-    bank.accounts[2].withdraw(1000)    
+    bank.accounts[0].deposit(200)
+    bank.accounts[1].deposit(50.5)
+    bank.accounts[2].withdraw(1000)
     print("\nAfter:")
     bank.show_all()
 
     bank.sort_by_balance()
-hhj
     print("\nDelete account 2:")
     bank.remove_account(2)
     bank.show_all()
-    bank_new = Bank()132213333wZZ
+    bank_new = Bank()
 
 
 main()
